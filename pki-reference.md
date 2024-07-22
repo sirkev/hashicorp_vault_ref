@@ -10,6 +10,7 @@ This tutorial will guide you through setting up a three-tier Public Key Infrastr
 
 This hierarchy enhances security and simplifies certificate management.
 
+
 ```mermaid
 graph TD
     A[Root CA] --> B[Intermediate CA]
@@ -111,6 +112,7 @@ All certificates should be stored in a `.tls` directory, which is gitignored for
    [alt_names]
    DNS.1 = vault.yourorgname.com
    ```
+**Important**: Include your vault instance IPs or domain names within [alt names] otherwise vault will fail to complete tls handshake when trying to join the cluster
 
 2. Generate the Vault server key and CSR:
    ```bash
